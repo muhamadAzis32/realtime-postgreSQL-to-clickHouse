@@ -33,6 +33,10 @@ services:
       KAFKA_CLUSTERS_0_NAME: "local"
       KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: "kafka:29092" # Use internal port for Kafka
       KAFKA_CLUSTERS_0_ZOOKEEPER: "zookeeper:2181"
+      KAFKA_CLUSTERS_0_SCHEMAREGISTRY: "http://schema-registry:8081"
+    depends_on:
+      - kafka
+      - schema-registry
 
   zookeeper:
     image: confluentinc/cp-zookeeper:5.5.3
